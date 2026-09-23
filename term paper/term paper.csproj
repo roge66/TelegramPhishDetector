@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-term_paper-36966fab-f9eb-4eed-87a0-d71019067b70</UserSecretsId>
+        <RootNamespace>term_paper</RootNamespace>
+        <Platforms>x64</Platforms>
+        <Platform>x64</Platform>
+        <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FFMpegInstaller.Windows.x64" Version="0.1.10" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="11.0.0-preview.4.26230.115" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="11.0.0-preview.4.26230.115" />
+        <PackageReference Include="NAudio" Version="3.0.0-preview.5" />
+        <PackageReference Include="OpusDotNet" Version="1.0.3" />
+        <PackageReference Include="Polly" Version="8.6.6" />
+        <PackageReference Include="System.Text.Json" Version="11.0.0-preview.4.26230.115" />
+        <PackageReference Include="Telegram.Bot" Version="22.10.0.1" />
+        <PackageReference Include="Tesseract" Version="5.2.0" />
+        <PackageReference Include="Vosk" Version="0.3.38" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Models\**\*.cs" Link="Models\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Compile Include="..\Modules\**\*.cs" Link="Modules\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Compile Include="..\Services\**\*.cs" Link="Services\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Compile Include="..\Utils\**\*.cs" Link="Utils\%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\Resources\**\*">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Link>Resources\%(RecursiveDir)%(Filename)%(Extension)</Link>
+        </None>
+    </ItemGroup>
+</Project>
